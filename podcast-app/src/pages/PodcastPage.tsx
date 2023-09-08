@@ -1,5 +1,5 @@
-import Header from "../Component/common/layout/podHeader/Header"
-import ItemDetails from "../Component/podcast/ItemDetails"
+import Header from "../components/common/layout/podHeader/Header"
+import ItemDetails from "../components/podCast/ItemDetails"
 
 const PodCastPage = () => {
     return (

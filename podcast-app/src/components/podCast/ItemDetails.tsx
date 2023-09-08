@@ -12,7 +12,6 @@ import Forward10Icon from '@mui/icons-material/Forward10';
 import Replay10Icon from '@mui/icons-material/Replay10';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-
 const ItemDetails = () => {
     const [isPlay, setIsPlay] = useState(false);
     const [sound, updateSound] = useState(false);
@@ -49,11 +48,12 @@ const ItemDetails = () => {
         updateSound(true)
         audioRef.current!.muted = !audioRef.current?.muted;
     }
-    
+
     const unMuteSound = (): void => {
         updateSound(false)
         audioRef.current!.muted = !audioRef.current?.muted
     }
+
     const forwardTime = (): void => {
         setTime(audioRef.current!.currentTime += 10);
 
@@ -61,9 +61,10 @@ const ItemDetails = () => {
     const replayTime = (): void => {
         setTime(audioRef.current!.currentTime -= 10)
     }
+
     return (
         <Grid container sx={{ bgcolor: '#121212', display: 'flex', flexWrap: 'wrap' }}>
-
+            
             <Grid xs={4} sx={{ width: 400, p: 2, bgcolor: '#090909' }}>
                 <AspectRatio ratio={1}>
                     <img src={selectData[0]?.image}></img>
