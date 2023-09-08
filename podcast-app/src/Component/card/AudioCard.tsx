@@ -9,7 +9,6 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { getItemDetails } from '../../services/redux/slice/Slice';
 import { Link } from 'react-router-dom';
 const AudioCard = () => {
-    console.log("Audio data is  : ", AudioData);
     const dispatch = useDispatch();
     return (
         <Grid container sx={{ display: 'flex' }}>
