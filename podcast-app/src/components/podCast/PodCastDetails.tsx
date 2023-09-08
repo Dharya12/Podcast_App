@@ -12,7 +12,7 @@ import Forward10Icon from '@mui/icons-material/Forward10';
 import Replay10Icon from '@mui/icons-material/Replay10';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-const ItemDetails = () => {
+const PodCastDetails = () => {
     const [isPlay, setIsPlay] = useState(false);
     const [sound, updateSound] = useState(false);
     const [time, setTime] = useState(0);
@@ -111,4 +111,4 @@ const ItemDetails = () => {
     )
 }
 
-export default ItemDetails;
+export default PodCastDetails;

@@ -1,11 +1,11 @@
 import Header from "../components/common/layout/podHeader/Header"
-import ItemDetails from "../components/podCast/ItemDetails"
+import PodCastDetails from "../components/podCast/PodCastDetails"
 
 const PodCastPage = () => {
     return (
         <>
             <Header />
-            <ItemDetails />
+            <PodCastDetails />
         </>
     )
 }
