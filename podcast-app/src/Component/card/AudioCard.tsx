@@ -1,12 +1,12 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import AudioData from '../../constant/podcastData.json';
+import AudioData from 'constant/podcastData.json';
 import { Typography } from '@mui/material';
 import { AspectRatio } from '@mui/joy';
 import { useDispatch } from 'react-redux';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { getItemDetails } from '../../services/redux/slice/Slice';
+import { getItemDetails } from 'services/redux/slice/Slice';
 import { Link } from 'react-router-dom';
 const AudioCard = () => {
     console.log("Audio data is  : ", AudioData);

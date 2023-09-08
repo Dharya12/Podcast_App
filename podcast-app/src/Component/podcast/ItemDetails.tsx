@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../services/redux/store/Store";
+import { RootState } from "services/redux/store/Store";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { AspectRatio } from "@mui/joy";
 import { useRef, useState } from "react";

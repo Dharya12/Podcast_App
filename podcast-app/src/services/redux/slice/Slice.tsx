@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Data } from "../../../interfaces/DataInterface";
+import { Data } from "interfaces/DataInterface";
 
 interface itemDataInterFace {
     itemDetail: Data[]
