@@ -1,7 +1,7 @@
-import Header from "../Component/common/layout/podHeader/Header";
-import AudioCard from "../Component/card/AudioCard"
+import Header from "../component/common/layout/podHeader/Header";
+import AudioCard from "../component/card/AudioCard"
 
-const HomePage = () => {
+const HomePage : React.FC = () => {
     return (
         <>
             <Header />

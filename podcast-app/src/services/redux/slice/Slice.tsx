@@ -9,7 +9,7 @@ const initialState: itemDataInterFace = {
     itemDetail: [],
 }
 
-export const PodCastSlice = createSlice(
+export const PodCastSlice  = createSlice(
     {
         name: 'Podcast',
         initialState,

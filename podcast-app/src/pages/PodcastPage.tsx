@@ -1,7 +1,7 @@
-import Header from "../Component/common/layout/podHeader/Header"
-import ItemDetails from "../Component/podcast/ItemDetails"
+import Header from "../component/common/layout/podHeader/Header"
+import ItemDetails from "../component/podcast/ItemDetails"
 
-const PodCastPage = () => {
+const PodCastPage : React.FC = () => {
     return (
         <>
             <Header />

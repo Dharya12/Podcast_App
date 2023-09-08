@@ -11,9 +11,7 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import Forward10Icon from '@mui/icons-material/Forward10';
 import Replay10Icon from '@mui/icons-material/Replay10';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-
-const ItemDetails = () => {
+const ItemDetails : React.FC = () => {
     const [isPlay, setIsPlay] = useState(false);
     const [sound, updateSound] = useState(false);
     const [time, setTime] = useState(0);
@@ -39,8 +37,8 @@ const ItemDetails = () => {
         console.log("Current time is : ", time)
     }
 
-    const handleChange = (e: any): void => {
-        const newValue = (e.target.value / 100) * duration;
+    const handleChange = (e:Event , value : number | number[]): void => {
+        const newValue = (+value / 100) * duration;
         audioRef.current!.currentTime = newValue;
         setTime(newValue);
     }

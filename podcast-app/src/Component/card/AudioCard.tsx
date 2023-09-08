@@ -8,7 +8,8 @@ import { useDispatch } from 'react-redux';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { getItemDetails } from '../../services/redux/slice/Slice';
 import { Link } from 'react-router-dom';
-const AudioCard = () => {
+
+const AudioCard : React.FC = () => {
     console.log("Audio data is  : ", AudioData);
     const dispatch = useDispatch();
     return (

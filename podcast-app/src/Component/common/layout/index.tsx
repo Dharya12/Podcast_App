@@ -1,6 +1,6 @@
 import Header from "./podHeader/Header"
 
-const layout = () => {
+const layout : React.FC = () => {
     return (
         <Header />
     )
