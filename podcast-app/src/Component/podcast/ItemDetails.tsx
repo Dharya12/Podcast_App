@@ -32,8 +32,7 @@ const ItemDetails = () => {
     const handlerDuration = useCallback((): void => {
         setDuration(audioRef.current!.duration);
         setTime(audioRef.current!.currentTime);
-        console.log("Current time is : ", time)
-    },[time]);
+    },[]);
 
     const handleChange = useCallback((e:Event , value : number | number[]): void => {
         const newValue = (+value / 100) * duration;
