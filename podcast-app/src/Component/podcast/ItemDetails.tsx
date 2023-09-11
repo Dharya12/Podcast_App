@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../services/redux/store/Store";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { AspectRatio } from "@mui/joy";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { IconButton, Slider, Typography } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
@@ -18,47 +18,46 @@ const ItemDetails : React.FC = () => {
     const [duration, setDuration] = useState(0);
     const audioRef = useRef<HTMLAudioElement>(null);
     const selectData = useSelector((state: RootState) => state.Podcast.itemDetail);
-    console.log("select Data is : ", selectData);
-    console.log('audio ref is : ', audioRef);
 
-    const AudioPlay = (): void => {
+    const AudioPlay= useCallback(() : void=>{
         setIsPlay(true);
         audioRef.current?.play();
-    }
+    },[audioRef]);
 
-    const AudioPause = (): void => {
-        setIsPlay(false)
+    const AudioPause =useCallback(() : void =>{
+        setIsPlay(false);
         audioRef.current?.pause();
-    }
+    },[audioRef]);
 
-    const handlerDuration = (): void => {
+    const handlerDuration = useCallback(() : void =>{
         setDuration(audioRef.current!.duration);
         setTime(audioRef.current!.currentTime);
-        console.log("Current time is : ", time)
-    }
+    },[audioRef]);
 
-    const handleChange = (e:Event , value : number | number[]): void => {
+    const handleChange = useCallback((e:Event , value : number | number[]) : void =>{
         const newValue = (+value / 100) * duration;
         audioRef.current!.currentTime = newValue;
         setTime(newValue);
-    }
+    },[duration]);
 
-    const muteSound = (): void => {
-        updateSound(true)
+    const muteSound = useCallback(() : void => {
+        updateSound(true);
         audioRef.current!.muted = !audioRef.current?.muted;
-    }
+    },[audioRef]);
     
-    const unMuteSound = (): void => {
+    const unMuteSound = useCallback((): void => {
         updateSound(false)
         audioRef.current!.muted = !audioRef.current?.muted
-    }
-    const forwardTime = (): void => {
-        setTime(audioRef.current!.currentTime += 10);
+    },[audioRef]);
 
-    }
-    const replayTime = (): void => {
+    const forwardTime = useCallback((): void => {
+        setTime(audioRef.current!.currentTime += 10);
+    },[audioRef]);
+
+    const replayTime = useCallback((): void => {
         setTime(audioRef.current!.currentTime -= 10)
-    }
+    },[audioRef]);
+
     return (
         <Grid container sx={{ bgcolor: '#121212', display: 'flex', flexWrap: 'wrap' }}>
 
@@ -71,7 +70,6 @@ const ItemDetails : React.FC = () => {
                 <Typography variant="h4" sx={{ pb: 2 }}>{selectData[0].title}</Typography>
                 <Typography>{selectData[0].description}</Typography>
             </Grid>
-
             <Grid container xs={12} bgcolor='#1a1a1a' sx={{ mt: 1, display: 'flex' }}>
                 <audio
                     src={selectData[0].audioSrc}
@@ -79,7 +77,6 @@ const ItemDetails : React.FC = () => {
                     onTimeUpdate={handlerDuration}
                 >
                 </audio>
-
                 <IconButton size="large" color="secondary" sx={{ backgroundColor: '' }}>
                     {((isPlay === false) ? (<PlayArrowIcon onClick={AudioPlay} />) : <PauseIcon onClick={AudioPause} />)}
                 </IconButton>
@@ -94,9 +91,10 @@ const ItemDetails : React.FC = () => {
                 <IconButton>
                     {(sound === false) ? <VolumeUpIcon color="secondary" onClick={muteSound} /> : <VolumeOffIcon color="secondary" onClick={unMuteSound} />}
                 </IconButton>
+                
                 <IconButton onClick={forwardTime}
                     disabled={(audioRef.current?.currentTime === audioRef.current?.duration) ? true : false}
-
+                    
                 >
                     <Forward10Icon color='secondary' />
                 </IconButton>
