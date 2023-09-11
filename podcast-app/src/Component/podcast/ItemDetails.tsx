@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../services/redux/store/Store";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { AspectRatio } from "@mui/joy";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { IconButton, Slider, Typography } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
@@ -11,8 +11,6 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import Forward10Icon from '@mui/icons-material/Forward10';
 import Replay10Icon from '@mui/icons-material/Replay10';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-
 const ItemDetails = () => {
     const [isPlay, setIsPlay] = useState(false);
     const [sound, updateSound] = useState(false);
@@ -20,47 +18,46 @@ const ItemDetails = () => {
     const [duration, setDuration] = useState(0);
     const audioRef = useRef<HTMLAudioElement>(null);
     const selectData = useSelector((state: RootState) => state.Podcast.itemDetail);
-    console.log("select Data is : ", selectData);
-    console.log('audio ref is : ', audioRef);
 
-    const AudioPlay = (): void => {
+    const AudioPlay = useCallback((): void => {
         setIsPlay(true);
         audioRef.current?.play();
-    }
+    },[]);
 
-    const AudioPause = (): void => {
+    const AudioPause = useCallback((): void => {
         setIsPlay(false)
         audioRef.current?.pause();
-    }
+    },[]);
 
-    const handlerDuration = (): void => {
+    const handlerDuration = useCallback((): void => {
         setDuration(audioRef.current!.duration);
         setTime(audioRef.current!.currentTime);
         console.log("Current time is : ", time)
-    }
+    },[time]);
 
-    const handleChange = (e: any): void => {
-        const newValue = (e.target.value / 100) * duration;
+    const handleChange = useCallback((e:Event , value : number | number[]): void => {
+        const newValue = (+value / 100) * duration;
         audioRef.current!.currentTime = newValue;
         setTime(newValue);
-    }
+    },[duration]);
 
-    const muteSound = (): void => {
+    const muteSound = useCallback((): void => {
         updateSound(true)
         audioRef.current!.muted = !audioRef.current?.muted;
-    }
+    },[])
     
-    const unMuteSound = (): void => {
+    const unMuteSound = useCallback((): void => {
         updateSound(false)
         audioRef.current!.muted = !audioRef.current?.muted
-    }
-    const forwardTime = (): void => {
+    },[])
+    const forwardTime = useCallback((): void => {
         setTime(audioRef.current!.currentTime += 10);
 
-    }
-    const replayTime = (): void => {
+    },[])
+    const replayTime = useCallback((): void => {
         setTime(audioRef.current!.currentTime -= 10)
-    }
+    },[]);
+
     return (
         <Grid container sx={{ bgcolor: '#121212', display: 'flex', flexWrap: 'wrap' }}>
 
