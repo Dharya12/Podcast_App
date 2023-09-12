@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Data } from "../../../interfaces/DataInterface";
+import { IPodData } from "interfaces/DataInterface";
 
 interface itemDataInterFace {
-    itemDetail: Data[]
+    itemDetail: IPodData[]
 }
 
 const initialState: itemDataInterFace = {
@@ -15,9 +15,7 @@ export const PodCastSlice = createSlice(
         initialState,
 
         reducers: {
-            getItemDetails: (state = initialState, action: PayloadAction<Data>) => {
-                console.log("state is  : ", state);
-                console.log(action);
+            getItemDetails: (state = initialState, action: PayloadAction<IPodData>) => {
                 state.itemDetail = [{ ...action.payload }];
             }
         }
