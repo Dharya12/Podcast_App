@@ -22,17 +22,17 @@ const ItemDetails = () => {
     const AudioPlay = useCallback((): void => {
         setIsPlay(true);
         audioRef.current?.play();
-    },[]);
+    },[audioRef]);
 
     const AudioPause = useCallback((): void => {
         setIsPlay(false)
         audioRef.current?.pause();
-    },[]);
+    },[audioRef]);
 
     const handlerDuration = useCallback((): void => {
         setDuration(audioRef.current!.duration);
         setTime(audioRef.current!.currentTime);
-    },[]);
+    },[audioRef]);
 
     const handleChange = useCallback((e:Event , value : number | number[]): void => {
         const newValue = (+value / 100) * duration;
@@ -43,19 +43,19 @@ const ItemDetails = () => {
     const muteSound = useCallback((): void => {
         updateSound(true)
         audioRef.current!.muted = !audioRef.current?.muted;
-    },[])
+    },[audioRef]);
     
     const unMuteSound = useCallback((): void => {
         updateSound(false)
         audioRef.current!.muted = !audioRef.current?.muted
-    },[])
+    },[audioRef]);
     const forwardTime = useCallback((): void => {
         setTime(audioRef.current!.currentTime += 10);
 
-    },[])
+    },[audioRef]);
     const replayTime = useCallback((): void => {
         setTime(audioRef.current!.currentTime -= 10)
-    },[]);
+    },[audioRef]);
 
     return (
         <Grid container sx={{ bgcolor: '#121212', display: 'flex', flexWrap: 'wrap' }}>
