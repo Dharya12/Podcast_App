@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-      components: `${path.resolve(__dirname, "src/component")}`,
+      components: `${path.resolve(__dirname, "src/components")}`,
       services : `${path.resolve(__dirname,"src/services")}`,
       constant : `${path.resolve(__dirname,"src/constant")}`,
       interfaces : `${path.resolve(__dirname,"src/interfaces")}`,
