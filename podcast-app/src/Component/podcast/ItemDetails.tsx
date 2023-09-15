@@ -20,8 +20,6 @@ const ItemDetails = () => {
     const [duration, setDuration] = useState(0);
     const audioRef = useRef<HTMLAudioElement>(null);
     const selectData = useSelector((state: RootState) => state.Podcast.itemDetail);
-    console.log("select Data is : ", selectData);
-    console.log('audio ref is : ', audioRef);
 
     const AudioPlay = (): void => {
         setIsPlay(true);
@@ -36,7 +34,6 @@ const ItemDetails = () => {
     const handlerDuration = (): void => {
         setDuration(audioRef.current!.duration);
         setTime(audioRef.current!.currentTime);
-        console.log("Current time is : ", time)
     }
 
     const handleChange = (e: any): void => {
