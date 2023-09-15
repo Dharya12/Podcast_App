@@ -1,5 +1,5 @@
-export interface Data {
-    id : string,
+export interface IPodData {
+    id : number,
     title : string,
     description : string,
     image : string,
