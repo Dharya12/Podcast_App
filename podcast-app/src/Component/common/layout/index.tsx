@@ -1,4 +1,4 @@
-import Header from "./podHeader/Header"
+import Header from "component/common/layout/podHeader/Header";
 
 const layout = () => {
     return (

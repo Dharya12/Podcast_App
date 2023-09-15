@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import HomePage from "../pages/HomePage";
-import PodCastPage from "../pages/PodcastPage";
+import HomePage from "pages/HomePage";
+import PodCastPage from "pages/PodcastPage";
 
 const Routing = () => {
     return (

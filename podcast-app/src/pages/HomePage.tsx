@@ -1,5 +1,5 @@
-import Header from "../Component/common/layout/podHeader/Header";
-import AudioCard from "../Component/card/AudioCard"
+import AudioCard from "component/card/AudioCard";
+import Header from "component/common/layout/podHeader/Header";
 
 const HomePage = () => {
     return (

@@ -6,7 +6,7 @@ import { Typography } from '@mui/material';
 import { AspectRatio } from '@mui/joy';
 import { useDispatch } from 'react-redux';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { getItemDetails } from '../../services/redux/slice/Slice';
+import { getItemDetails } from 'services/redux/slice/Slice';
 import { Link } from 'react-router-dom';
 const AudioCard = () => {
     const dispatch = useDispatch();
