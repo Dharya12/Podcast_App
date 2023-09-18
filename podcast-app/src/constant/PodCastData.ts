@@ -1,4 +1,4 @@
-import { IPodData } from "../interfaces/DataInterface";
+import { IPodData } from "interfaces/DataInterface";
 
 export const Const_Pod_Cast_Data :IPodData[] =[
     {
