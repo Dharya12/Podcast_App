@@ -1,0 +1,17 @@
+.swiper-button-prev{
+    margin-left: 500px;
+    color: white;
+    
+    
+}
+
+.swiper-button-next{
+    margin-right: 630px;
+    color: white
+}
+video::-internal-media-controls-download-button {
+    display:none;
+}
+.mySwiper{
+    margin-top: 4pc;
+}
