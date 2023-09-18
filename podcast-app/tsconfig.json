@@ -7,12 +7,13 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
-      "@components/*" : ["/components/*"],
+      "@components/*" : ["/component/*"],
       "@services/*" : ["/services/*"],
       "@constant/*" : ["/constant/*"],
       "@interfaces/*" : ["/interfaces/*"],
       "@pages/*" : ["/pages/*"],
-},
+    },
+
 
     /* Bundler mode */
     "moduleResolution": "bundler",
