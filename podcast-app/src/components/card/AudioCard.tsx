@@ -1,7 +1,7 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import {Const_Pod_Cast_Data} from 'constant/PodcastData.ts';
+import {Const_Pod_Cast_Data} from 'constant/PodCastData';
 import { Typography } from '@mui/material';
 import { AspectRatio } from '@mui/joy';
 import { useDispatch } from 'react-redux';
