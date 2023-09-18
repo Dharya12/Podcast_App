@@ -24,18 +24,22 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-  };
-
-export default function VideoSliderContainer(props) {
+};
+type prop={
+    openModals:boolean,
+    closeModal:()=>void,
+} 
+export default function VideoSliderContainer(props:prop) {
     
     const selectItemIndex = useSelector((state : RootState) => state.Podcast.id);
     
     const [sliderIndex , updateSliderIndex] = useState(0) ; 
     const selectedItems  = Const_Video_Image_Data.slice(selectItemIndex);
     const videoRef = useRef(null);
-
-    const handleSliderIndex = useCallback((swiper) : void=>{
-        updateSliderIndex(swiper.realIndex);
+    const sliderRef =  useRef(null);
+    
+    const handleSliderIndex = useCallback((swiperIndex : number) : void=>{
+        updateSliderIndex(swiperIndex);
     },[]);
 
   return (
@@ -65,7 +69,7 @@ export default function VideoSliderContainer(props) {
                         navigation={true}
                         modules={[Mousewheel, Keyboard , Pagination ,Navigation,EffectCoverflow]}
                         className="mySwiper"
-                        onSlideChange={(swiper)=>handleSliderIndex(swiper)}
+                        onSlideChange={(swiper)=>handleSliderIndex(swiper.realIndex)}
                     >
                         {
                             selectedItems.map((item , index : number)=>{
