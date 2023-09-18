@@ -26,16 +26,21 @@ const style = {
     p: 4,
   };
 
-export default function VideoSliderContainer(props) {
+type prop={
+    openModals:boolean,
+    closeModal:()=>void,
+}  
+export default function VideoSliderContainer(props:prop) {
     
     const selectItemIndex = useSelector((state : RootState) => state.Podcast.id);
     
     const [sliderIndex , updateSliderIndex] = useState(0) ; 
     const selectedItems  = Const_Video_Image_Data.slice(selectItemIndex);
     const videoRef = useRef(null);
+    const sliderRef =  useRef(null);
 
-    const handleSliderIndex = useCallback((swiper) : void=>{
-        updateSliderIndex(swiper.realIndex);
+    const handleSliderIndex = useCallback((swiperIndex : number) : void=>{
+        updateSliderIndex(swiperIndex);
     },[]);
 
   return (
@@ -49,8 +54,9 @@ export default function VideoSliderContainer(props) {
             >
                 <Box sx={{ ...style,width : "100%" , height : '100%' , bgcolor: "black"}}>
 
-                    <Button sx={{m:2}} variant="contained"    onClick={()=>{props.closeModal() ; updateSliderIndex(0)}}>Close</Button>
+                    <Button sx={{m:2}} variant="contained"    onClick={()=>{props.closeModal(); updateSliderIndex(0)}}>Close</Button>
                     <Swiper
+                        ref={sliderRef}
                         effect= {'coverflow'}
                         centeredSlides={true}
                         coverflowEffect={{
@@ -65,7 +71,7 @@ export default function VideoSliderContainer(props) {
                         navigation={true}
                         modules={[Mousewheel, Keyboard , Pagination ,Navigation,EffectCoverflow]}
                         className="mySwiper"
-                        onSlideChange={(swiper)=>handleSliderIndex(swiper)}
+                        onSlideChange={(swiper)=>handleSliderIndex(swiper.realIndex)}
                     >
                         {
                             selectedItems.map((item , index : number)=>{
